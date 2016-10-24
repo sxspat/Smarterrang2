@@ -1,0 +1,296 @@
+<div id="content">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-9" id="checkout">
+
+                <div class="box">
+
+                    <ul class="nav nav-pills nav-justified">
+                        <li [class]="check1Active"><a data-toggle="tab" href="#"><i class="fa fa-map-marker"></i><br>Adresse</a></li>
+                        <li [class]="check2Active"><a data-toggle="tab" href="#"><i class="fa fa-money"></i><br>Bezahlmethode</a></li>
+                        <li [class]="check3Active"><a data-toggle="tab" href="#"><i class="fa fa-eye"></i><br>Bestellübersicht</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="address" class="tab-pane fade in active" *ngIf="checkout == '1'">
+                            <form [formGroup]="addressform" novalidate>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label for="salutation">Anrede</label>
+                                        <select type="text" class="form-control" id="salutation" formControlName="salutation"  name="salutation">
+                                        <option value="Herr">Herr</option>
+                                        <option value="Frau">Frau</option>
+                                        </select>
+                                        <span style="color:red"> <span *ngIf="addressform.controls.salutation.touched && !addressform.controls.salutation.valid"> Invalid Selection </span> </span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label for="title">Titel*</label>
+                                        <input type="text" class="form-control" id="title" formControlName="title"  name="title">
+                                        <span style="color:red"> <span *ngIf="addressform.controls.title.touched && !addressform.controls.title.valid">*Title Required </span> </span>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <!-- /.row -->
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="firstname">Vorname*</label>
+                                        <input type="text" class="form-control" id="firstname" formControlName="firstname"  name="firstname">
+                                        <span style="color:red"> <span *ngIf="addressform.controls.firstname.touched && !addressform.controls.firstname.valid">*Firstname Required </span> </span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="lastname">Nachname*</label>
+                                        <input type="text" class="form-control" id="lastname" formControlName="lastname"  name="lastname">
+                                        <span style="color:red"> <span *ngIf="addressform.controls.lastname.touched && !addressform.controls.lastname.valid">*Lastname Required </span> </span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- /.row -->
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="company">Firma*</label>
+                                        <input type="text" class="form-control" id="company" formControlName="company"  name="company">
+                                        <span style="color:red"> <span *ngIf="addressform.controls.company.touched && !addressform.controls.company.valid">*Company Required </span> </span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-sm-4">
+                                    <div class="form-group">
+                                        <label for="street">Straße*</label>
+                                        <input type="text" class="form-control" id="street" formControlName="street"  name="street">
+                                        <span style="color:red"> <span *ngIf="addressform.controls.street.touched && !addressform.controls.street.valid">*Street Required </span> </span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-2">
+                                    <div class="form-group">
+                                        <label for="streetnr">Nummer*</label>
+                                        <input type="text" class="form-control" id="streetnr" formControlName="streetnr"  name="streetnr">
+                                        <span style="color:red"> <span *ngIf="addressform.controls.streetnr.touched && !addressform.controls.streetnr.valid">*Streetnr Required </span> </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.row -->
+
+                            <div class="row">
+                                <div class="col-sm-6 col-md-2">
+                                    <div class="form-group">
+                                        <label for="zip">Postleitzahl*</label>
+                                        <input type="text" class="form-control" id="zip" formControlName="zip"  name="zip">
+                                        <span style="color:red"> <span *ngIf="addressform.controls.zip.touched && !addressform.controls.zip.valid">*Zip Required </span> </span>
+                                    </div>
+                                </div>
+                               <div class="col-sm-6 col-md-4">
+                                    <div class="form-group">
+                                        <label for="city">Ort*</label>
+                                        <input type="text" class="form-control" id="city" formControlName="city"  name="city">
+                                        <span style="color:red"> <span *ngIf="addressform.controls.city.touched && !addressform.controls.city.valid">*City Required </span> </span>
+                                    </div>
+                                </div>
+                               
+                                
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="country">Land*</label>
+                                        <select class="form-control" id="country" formControlName="country"  name="country">
+                                            <option value="germany">Deutschland</option>
+                                            <option value="austria">Österreich</option>
+                                            <option value="swiss">Schweiz</option>
+                                            <option value="usa">USA</option>
+                                        </select>
+                                        <span style="color:red"> <span *ngIf="addressform.controls.country.touched && !addressform.controls.country.valid"> Invalid Selection </span> </span>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="phone">Telefon*</label>
+                                        <input type="text" class="form-control" id="phone" formControlName="phone"  name="phone">
+                                        <span style="color:red"> <span *ngIf="addressform.controls.phone.touched && !addressform.controls.phone.valid">*Phone number Required </span> </span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="email">E-Mail*</label>
+                                        <input type="text" class="form-control" id="email" formControlName="email"  name="email">
+                                        <span style="color:red"> <span *ngIf="addressform.controls.email.touched && !addressform.controls.email.valid">*Email Required </span> </span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            </form>
+                        </div>
+                        <div id="paysystem" class="tab-pane in active" *ngIf="checkout == '2'">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="box payment-method">
+
+                                        <h4>Paypal</h4>
+
+                                        <p>Mit PayPal einfach und sicher bezahlen, Zahlungen empfangen & Geld senden. Profitieren auch Sie vom Käuferschutz & Verkäuferschutz.<br><br><br></p>
+
+                                        <div class="box-footer text-center">
+
+                                            <input type="radio" name="payment" value="payment1" checked="true" (click)="setPaypal()">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="box payment-method">
+
+                                        <h4>SEPA-Lastschrift</h4>
+
+                                        <p>Mit der SEPA-Lastschrift können Sie offene Rechnungen in Deutschland oder anderen SEPA-Staaten bargeldlos bezahlen. Durch ein Lastschriftmandat erlauben Sie dem Zahlungsempfänger, den fälligen Betrag von Ihrem Konto abzubuchen.</p>
+
+                                        <div class="box-footer text-center">
+
+                                            <input type="radio" name="payment" value="payment2" (click)="setDebit()">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                
+                            </div>
+                        </div>
+                        <div id="eye" class="tab-pane in active" *ngIf="checkout == '3'">
+                            <div class="row">
+                    
+                                <div class="col-md-9 clearfix" id="basket">
+
+                                    <div class="box">
+
+                                        <div class="table-responsive">
+                                            <!--<table ng-table="tableParams" class="table" show-filter="true">
+                                                <tr ng-repeat="user in data">
+                                                    <td title="'Name'" filter="{ name: 'text'}" sortable="'name'">
+                                                        {{user.name}}</td>
+                                                    <td title="'Age'" filter="{ age: 'number'}" sortable="'age'">
+                                                        {{user.age}}</td>
+                                                </tr>
+                                            </table>-->
+                                            <table ng-table="tableParams" class="table" show-filter="true">
+                                                <thead>
+                                                    <tr>
+                                                        <th colspan="2">Produkt</th>
+                                                        <th>Anzahl</th>
+                                                        <th>Stückpreis</th>
+                                                        <th>Rabatt</th>
+                                                        <th colspan="2">Summe</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr *ngFor="let item of checkoutService.cartItems">
+                                                        <td>
+                                                            <a href="#">
+                                                                <img src="public/img/logod.png" alt="Image engelCARD">
+                                                            </a>
+                                                        </td>
+                                                        <td><p>{{item.title}} <span class="text-info">Premium</span></p>
+                                                            <p>{{item.description}}</p>
+                                                        </td>
+                                                        <td>
+                                                            <input type="number" value="2" class="form-control" [(ngModel)]="item.quantity">
+                                                        </td>
+                                                        <td>€{{item.price}}</td>
+                                                        <td>€0.00</td>
+                                                        <td>€{{item.quantity * item.price}}</td>
+                                                        <td><a href="#"><i class="fa fa-trash-o"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th colspan="5">Zwischensumme</th>
+                                                        <th colspan="2">€24.00</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th colspan="5">MwSt. (19%)</th>
+                                                        <th colspan="2">€4.56</th>
+                                                    </tr>
+                                                     <tr>
+                                                        <th colspan="5">Versand</th>
+                                                        <th colspan="2">€2.50</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th colspan="5">Total</th>
+                                                        <th colspan="2">€26.50</th>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+                                        </div>
+                                                <!-- /.table-responsive -->
+                                    </div>
+                                            <!-- /.content -->
+
+                                    <div class="box-footer">
+                                        <div class="box-header">
+                                            <h4>Gutschein-Code</h4>
+                                        
+                                        <p class="text-muted">Bitte geben Sie hier Ihren Gutscheincode ein.</p>
+                                        <form>
+                                            <div class="input-group col-md-6">
+
+                                                <input type="text" class="form-control">
+
+                                                <span class="input-group-btn">
+
+                                                    <button class="btn btn-template-main" type="button"><i class="fa fa-gift"></i></button>
+
+                                                </span>
+                                            </div>
+                                            <!-- /input-group -->
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    
+
+                    <div class="box-footer">
+                        <div class="pull-left">
+                            <button type="submit" (click)="onPrev()" class="btn btn-template-main">Zurück<i class="fa fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="pull-right">
+                            <button type="submit" class="btn btn-template-main" [disabled]="!addressform.valid" (click)="onNext()">Weiter<i class="fa fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box -->
+
+
+            </div>
+            <!-- /.col-md-9 -->
+
+            
+        <form id="checkout-form" action="/transaction-endpoint" method="post">
+            <div id="error-message"></div>
+
+            <label for="card-number">Card Number</label>
+            <div class="hosted-field" id="card-number"></div>
+
+            <label for="cvv">CVV</label>
+            <div class="hosted-field" id="cvv"></div>
+
+            <label for="expiration-date">Expiration Date</label>
+            <div class="hosted-field" id="expiration-date"></div>
+
+            <input type="hidden" name="payment-method-nonce">
+            <input type="submit" value="Pay $10" disabled>
+        </form>
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+</div>

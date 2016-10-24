@@ -1,0 +1,348 @@
+
+<div class="container" style="margin-top:20px;">
+  <div class="row" >
+
+    <div class="col-sm-3">
+      <div class="user-profile__avatar shadow-effect text-center">
+        <div class="imgWr">
+          <img class="img-responsive center-block "src='user/pid/{{Id}}'>
+
+
+<span class="imgDesc">
+  <label for="upload">
+<span class="profileImg glyphicon glyphicon-camera" aria-hidden="true"></span>
+<input type="file" id="upload" style="display:none" (change)="onFileSelect($event)" >
+</label>
+
+
+<span class=" profileImg glyphicon glyphicon-trash"  (click)="profileRemove()"></span>
+
+
+
+</span>
+
+        </div>
+
+
+
+
+
+
+      </div>
+
+<div >
+    <button style="width:100%;" class="btn btn-success">Add Friendlist</button>
+</div>
+<div style="margin-top:80px; margin-bottom:150px;">
+    <button style="width:100%;" class="btn btn-default">Send Message</button>
+</div>
+    </div>
+
+
+        <div class="col-sm-8" style="margin-top:10px; " >
+
+          <!-- User name -->
+          <h3 class="user-profile__title">{{Name}}</h3>
+            <h4 class="user-profile__title">Manager</h4>
+<h5>Age: 39</h5>
+          <!-- User description -->
+          <p class="user-profile__desc">
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+          </p>
+          <div class="container" style="margin-top:20px; float: left;">
+<h4>Visitors</h4>
+        <img src="https://images.alphacoders.com/605/605634.jpg" class="img-circle" alt="Cinque Terre" width="50" height="50">
+        <img src="http://www.ak-kurier.de/akkurier/www/upload/FOC-model15.jpg" class="img-circle" alt="Cinque Terre" width="50" height="50">
+        <img src="http://www.thetimes.co.uk/tto/multimedia/archive/00413/TMM18KLUM1_a_413139c.jpg" class="img-circle" alt="Cinque Terre" width="50" height="50">
+      </div>
+        </div>
+      <br/>
+
+        <div class="col-sm-12"  >
+
+          <div class="user-profile__tabs">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <hr>
+              <li role="presentation" class="active">
+                <a href="#user-profile__portfolio" aria-controls="user-profile__portfolio" role="tab" data-toggle="tab" aria-expanded="true" class="head glyphicon glyphicon-th"> Start</a>
+              </li>
+
+              <li role="presentation" class="">
+                <a href="#user-profile__friends" aria-controls="user-profile__friends" role="tab" data-toggle="tab" aria-expanded="false" class="head glyphicon glyphicon-user"> Freunde</a>
+              </li>
+
+
+              <li role="presentation" class="">
+                <a href="#user-profile__photos" aria-controls="user-profile__photos" role="tab" data-toggle="tab" aria-expanded="false" class="head glyphicon glyphicon-camera"> Fotos</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#user-profile__settings" aria-controls="user-profile__settings" role="tab" data-toggle="tab" aria-expanded="false" class="head glyphicon glyphicon-cog"> Settings</a>
+              </li>
+              <li role="presentation" class="" ><!--*ngIf="ownerlogged"-->
+                <a href="#user-profile__calendar" aria-controls="user-profile__calendar" role="tab" data-toggle="tab" aria-expanded="false" class="head glyphicon glyphicon-calendar"> Calendar</a>
+              </li>
+              <li role="presentation" class="" ><!--*ngIf="ownerlogged"-->
+                <a href="#user-profile__card" aria-controls="user-profile__card" role="tab" data-toggle="tab" aria-expanded="false" class="head glyphicon glyphicon-credit-card"> Konto</a>
+              </li>
+
+            </ul>
+              <hr>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane fade active in" id="user-profile__portfolio">
+                <div class="row">
+                  	<div class="col-md-6">
+        <div class="glyphicon glyphicon-star-empty"> Wunschliste</div>
+
+      </div>
+      <div class="col-md-6">
+<div class="glyphicon glyphicon-thumbs-up"> Freunde</div>
+
+
+
+
+</div>
+                </div> <!-- / .row -->
+              </div> <!-- / .tab-pane -->
+
+              <div role="tabpanel" class="tab-pane fade in" id="user-profile__friends">
+        <div class="row">
+          <div class="col-lg-6">
+<div class="input-group">
+<input type="text" class="form-control" placeholder="Search for...">
+<span class="input-group-btn">
+  <button class="btn btn-default" type="button">Search</button>
+</span>
+</div><!-- /input-group -->
+</div><!-- /.col-lg-6 -->
+        </div>
+                <div class="row">
+
+                  <div class="section ourTeam">
+
+                  	<div class="row">
+                  		<div class="col-xs-6 col-sm-4 col-md-3 i">
+                  			<div class="c text-center">
+                  				<div class="wrap">
+                  					<img src="https://a2ua.com/models/models-006.jpg" alt="#" style="height:100px;" class="img-responsive">
+                  					<div class="info">
+                  						<h3 class="name">Jacquiline Doe</h3>
+                  						<h4 class="position">Chief Executive Officer</h4>
+                  					</div>
+                  				</div>
+
+                  			</div>
+                  		</div>
+                  		<div class="col-xs-6 col-sm-4 col-md-3 i">
+                  			<div class="c text-center">
+                  				<div class="wrap">
+                  					<img src="http://fashion-interview.com/wp-content/uploads/2015/10/plus-size-model-angelina-kirsch-topmodel-interview-fragen-trends-mode-welt-international-1030x515.jpg" alt="#" style="height:100px;" class="img-responsive">
+                  					<div class="info">
+                  						<h3 class="name">Elizabeth Doe</h3>
+                  						<h4 class="position">Marketing Specialist</h4>
+                  					</div>
+                  				</div>
+                          <div class="more">
+
+    <div class="socials">
+      <button><i class="glyphicon glyphicon-envelope"></i></button>
+        <button><i class="glyphicon glyphicon-remove"></i></button>
+    </div>
+  </div>
+
+
+                  			</div>
+                  		</div>
+                  		<div class="col-xs-6 col-sm-4 col-md-3 i">
+                  			<div class="c text-center">
+                  				<div class="wrap">
+                  					<img src="https://a2ua.com/models/models-001.jpg" alt="#" style="height:100px;" class="img-responsive">
+                  					<div class="info">
+                  						<h3 class="name">Doug Doe</h3>
+                  						<h4 class="position">Head of Support</h4>
+                  					</div>
+                  				</div>
+
+                  			</div>
+                  		</div>
+                  		<div class="col-xs-6 col-sm-4 col-md-3 i">
+                  			<div class="c text-center">
+                  				<div class="wrap">
+                  					<img src="https://s-media-cache-ak0.pinimg.com/originals/14/33/e9/1433e99457cf2b54b2a6975cf5cf8782.jpg" alt="#"  style="height:100px;" class="img-responsive">
+                  					<div class="info">
+                  						<h3 class="name">Jeccica Doe</h3>
+                  						<h4 class="position">Marketing Expert</h4>
+                  					</div>
+                  				</div>
+
+                  			</div>
+                  		</div>
+                  	</div>
+                  </div>
+                </div> <!-- / .row -->
+              </div> <!-- / .tab-pane -->
+
+
+							<div role="tabpanel" class="tab-pane fade in" id="user-profile__photos">
+								<div class="row">
+									<div class="col-sm-6 col-md-6 col-lg-4">
+										<div class="portfolio__item">
+											<div class="portfolio-item__img">
+												<a href="portfolio-item.html">
+													<img src="http://lorempixel.com/340/210/nature/2/" class="img-responsive" alt="...">
+													<div class="portfolio-item__mask">
+														<div class="portfolio-item-mask__content">
+															<div class="portfolio-item-mask__title">
+																Image title
+															</div>
+															<div class="portfolio-item-mask__summary">
+																Pellentesque metus arcu, placerat nec porta in, ultricies id enim.
+															</div>
+														</div> <!-- / .portfolio-item-mask__content -->
+													</div> <!-- / .portfolio-item__mask -->
+												</a>
+											</div> <!-- / .portfolio-item__img -->
+										</div> <!-- / .portfolio__item -->
+									</div>
+									<div class="col-sm-6 col-md-6 col-lg-4">
+										<div class="portfolio__item">
+											<div class="portfolio-item__img">
+												<a href="portfolio-item.html">
+													<img src="http://lorempixel.com/340/210/nature/3/" class="img-responsive" alt="...">
+													<div class="portfolio-item__mask">
+														<div class="portfolio-item-mask__content">
+															<div class="portfolio-item-mask__title">
+																Image title
+															</div>
+															<div class="portfolio-item-mask__summary">
+																Pellentesque metus arcu, placerat nec porta in, ultricies id enim.
+															</div>
+														</div> <!-- / .portfolio-item-mask__content -->
+													</div> <!-- / .portfolio-item__mask -->
+												</a>
+											</div> <!-- / .portfolio-item__img -->
+										</div> <!-- / .portfolio__item -->
+									</div>
+									<div class="col-sm-6 col-md-6 col-lg-4">
+										<div class="portfolio__item">
+											<div class="portfolio-item__img">
+												<a href="portfolio-item.html">
+													<img src="http://lorempixel.com/340/210/nature/4/" class="img-responsive" alt="...">
+													<div class="portfolio-item__mask">
+														<div class="portfolio-item-mask__content">
+															<div class="portfolio-item-mask__title">
+																Image title
+															</div>
+															<div class="portfolio-item-mask__summary">
+																Pellentesque metus arcu, placerat nec porta in, ultricies id enim.
+															</div>
+														</div> <!-- / .portfolio-item-mask__content -->
+													</div> <!-- / .portfolio-item__mask -->
+												</a>
+											</div> <!-- / .portfolio-item__img -->
+										</div> <!-- / .portfolio__item -->
+									</div>
+									<div class="col-sm-6 col-md-6 col-lg-4">
+										<div class="portfolio__item">
+											<div class="portfolio-item__img">
+												<a href="portfolio-item.html">
+													<img src="http://lorempixel.com/340/210/nature/5/" class="img-responsive" alt="...">
+													<div class="portfolio-item__mask">
+														<div class="portfolio-item-mask__content">
+															<div class="portfolio-item-mask__title">
+																Image title
+															</div>
+															<div class="portfolio-item-mask__summary">
+																Pellentesque metus arcu, placerat nec porta in, ultricies id enim.
+															</div>
+														</div> <!-- / .portfolio-item-mask__content -->
+													</div> <!-- / .portfolio-item__mask -->
+												</a>
+											</div> <!-- / .portfolio-item__img -->
+										</div> <!-- / .portfolio__item -->
+
+									</div>
+									<div class="col-sm-6 col-md-6 col-lg-4">
+
+										<div class="portfolio__item">
+											<div class="portfolio-item__img">
+												<a href="portfolio-item.html">
+													<img src="http://lorempixel.com/340/210/nature/6/" class="img-responsive" alt="...">
+													<div class="portfolio-item__mask">
+														<div class="portfolio-item-mask__content">
+															<div class="portfolio-item-mask__title">
+																Image title
+															</div>
+															<div class="portfolio-item-mask__summary">
+																Pellentesque metus arcu, placerat nec porta in, ultricies id enim.
+															</div>
+														</div> <!-- / .portfolio-item-mask__content -->
+													</div> <!-- / .portfolio-item__mask -->
+												</a>
+											</div> <!-- / .portfolio-item__img -->
+										</div> <!-- / .portfolio__item -->
+
+									</div>
+									<div class="col-sm-6 col-md-6 col-lg-4">
+
+										<div class="portfolio__item">
+											<div class="portfolio-item__img">
+												<a href="portfolio-item.html">
+													<img src="http://lorempixel.com/340/210/nature/1/" class="img-responsive" alt="...">
+													<div class="portfolio-item__mask">
+														<div class="portfolio-item-mask__content">
+															<div class="portfolio-item-mask__title">
+																Image title
+															</div>
+															<div class="portfolio-item-mask__summary">
+																Pellentesque metus arcu, placerat nec porta in, ultricies id enim.
+															</div>
+														</div> <!-- / .portfolio-item-mask__content -->
+													</div> <!-- / .portfolio-item__mask -->
+												</a>
+											</div> <!-- / .portfolio-item__img -->
+										</div> <!-- / .portfolio__item -->
+									</div>
+
+
+
+								</div> <!-- / .row -->
+							</div> <!-- / .tab-pane -->
+
+              <div role="tabpanel" class="tab-pane fade in" id="user-profile__settings">
+                <div class="row">
+                  <div class="col-md-12">
+                  Settings here
+
+                </div>
+                </div>
+              </div>
+
+              <div role="tabpanel" class="tab-pane fade in" id="user-profile__card">
+                <div class="row">
+                  <div class="col-md-12">
+                  Konto credential here
+
+                </div>
+                </div>
+              </div>
+              <div role="tabpanel" class="tab-pane fade in" id="user-profile__calendar">
+                <div class="row">
+                  <div class="col-md-12">
+
+                  <date-picker [options]="myOptions" (dateRangeChanged)="dateRangeChanged($event)"></date-picker>
+
+
+
+                </div>
+                </div>
+              </div>
+            </div> <!-- / .tab-content -->
+          </div>
+        </div>
+
+
+  </div> <!-- / .row -->
+</div>
