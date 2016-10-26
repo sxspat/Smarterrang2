@@ -1,0 +1,24 @@
+<div>
+	<button style="margin-left: 181px;" class="btn btn-primary" (click)="transactionService.show=false" ><span class="glyphicon glyphicon-circle-arrow-left"></span> Back</button>
+</div><br/><br/><br/>
+
+<div class="container" >
+	<form id="payment-form" action="/checkouts" method="post">
+		<section>
+			<div class="bt-drop-in-wrapper">
+				<div id="bt-dropin">
+					<iframe src="https://assets.braintreegateway.com/dropin/2.27.0/inline-frame.html#dd6ee11b-3da5-4d1a-88aa-801b6a42f8cd" frameborder="0" allowtransparency="true" scrolling="no" name="braintree-dropin-frame" width="100%" height="68" id="braintree-dropin-frame" style="transition: height 210ms cubic-bezier(0.39, 0.575, 0.565, 1); border: 0px; z-index: 9999; height: 189px;">
+					</iframe>
+				</div>
+			</div>
+			<label for="amount" class="has-value">
+				<span class="input-label">Amount</span>
+				<div class="input-wrapper amount-wrapper">
+					<input id="amount" name="amount" type="tel" min="1" placeholder="Amount" value="10">
+				</div>
+			</label>
+		</section>
+		<button type="submit" class="button"><span>Test Transaction</span></button>
+		<input type="hidden" name="payment_method_nonce" value="">
+	</form>
+</div>

@@ -347,6 +347,7 @@
 
 	<shopping-cart *ngIf="shoppingCartService.showCart" ></shopping-cart>
 	<check-out *ngIf="checkoutService.showCheckout"></check-out>
+	<transaction *ngIf="transactionService.show"></transaction>
 	<record [userId]="userId" *ngIf="addRecordsService.addRecord"></record>
 	<profile *ngIf='profileTab' [userId]='userId' [dataRecords]="exp_search"> </profile> 
 

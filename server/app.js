@@ -18,6 +18,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var flash = require('connect-flash');
 var checkout = require('./routes/checkout');
+var braintree = require('braintree');
 //var parsexml = require('./routes/parsexml');
 var app = express();
 exports.app = app;
@@ -42,7 +43,7 @@ app.use("/api", api);
 app.use('/user', user);
 app.use("/exp", exp);
 app.use('/image', image);
-app.use('/checkout', checkout);
+app.use('/', checkout);
 //app.use('/parse',parsexml);
 app.use('/client', express.static(path_1.join(__dirname, '../client')));
 // error handlers

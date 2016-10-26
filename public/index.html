@@ -38,13 +38,60 @@
 
 
         <link data-require="bootstrap-css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" />
-
+        <script type="text/javascript" src="javascript/vendor/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="javascript/vendor/jquery.lettering-0.6.1.min.js"></script>
+        <script type="text/javascript", src="javascript/demo.js"></script>
+        <script src="https://js.braintreegateway.com/js/braintree-2.27.0.min.js"></script>
 
         <!-- 2. Configure SystemJS -->
         <!-- Development mod -->
-   <script src="assets/js/systemjs.config.js"></script>
+        
+        <script src="assets/js/systemjs.config.js"></script>
         <script>
+            
             System.import('app').catch(function(err) { console.error(err); });
+        </script>
+
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog" style="width: 60%; margin: 0 auto">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header" align="center">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Transaction</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form id="payment-form" action="/checkout" method="post" style="width: 60%">
+                        <section>
+                          <div class="bt-drop-in-wrapper">
+                            <div id="bt-dropin"></div>
+                          </div>
+                          <label for="amount"><span class="input-label">Amount</span>
+                            <div class="input-wrapper amount-wrapper">
+                              <input id="amount" name="amount" type="tel" min="1" placeholder="Amount" value="10"/>
+                            </div>
+                          </label>
+                        </section>
+                        
+                    </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-info btn-lg"><span>Test Transaction</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            var checkout = new Demo({
+                formID: 'payment-form'
+            });
+
+            //eyJ2ZXJzaW9uIjoyLCJhdXRob3JpemF0aW9uRmluZ2VycHJpbnQiOiJkMzJmOGZmYjdiMGY5NDhhMGE1NGEyZWFiOTAwZjM4ZGFjZDc1NzAxZWNjY2RhNTFhOTA1MzYzNjg3ZmI4ZDk1fGNyZWF0ZWRfYXQ9MjAxNi0xMC0yNVQxMDoyNTowMC4yODUxODk2MjQrMDAwMFx1MDAyNm1lcmNoYW50X2lkPXR6Ymt3a2g0OGtzdnNyNThcdTAwMjZwdWJsaWNfa2V5PWtienpuN3g3Z3Fud200bmsiLCJjb25maWdVcmwiOiJodHRwczovL2FwaS5zYW5kYm94LmJyYWludHJlZWdhdGV3YXkuY29tOjQ0My9tZXJjaGFudHMvdHpia3draDQ4a3N2c3I1OC9jbGllbnRfYXBpL3YxL2NvbmZpZ3VyYXRpb24iLCJjaGFsbGVuZ2VzIjpbXSwiZW52aXJvbm1lbnQiOiJzYW5kYm94IiwiY2xpZW50QXBpVXJsIjoiaHR0cHM6Ly9hcGkuc2FuZGJveC5icmFpbnRyZWVnYXRld2F5LmNvbTo0NDMvbWVyY2hhbnRzL3R6Ymt3a2g0OGtzdnNyNTgvY2xpZW50X2FwaSIsImFzc2V0c1VybCI6Imh0dHBzOi8vYXNzZXRzLmJyYWludHJlZWdhdGV3YXkuY29tIiwiYXV0aFVybCI6Imh0dHBzOi8vYXV0aC52ZW5tby5zYW5kYm94LmJyYWludHJlZWdhdGV3YXkuY29tIiwiYW5hbHl0aWNzIjp7InVybCI6Imh0dHBzOi8vY2xpZW50LWFuYWx5dGljcy5zYW5kYm94LmJyYWludHJlZWdhdGV3YXkuY29tL3R6Ymt3a2g0OGtzdnNyNTgifSwidGhyZWVEU2VjdXJlRW5hYmxlZCI6dHJ1ZSwicGF5cGFsRW5hYmxlZCI6dHJ1ZSwicGF5cGFsIjp7ImRpc3BsYXlOYW1lIjoiTXlDb21wYW55IiwiY2xpZW50SWQiOm51bGwsInByaXZhY3lVcmwiOiJodHRwOi8vZXhhbXBsZS5jb20vcHAiLCJ1c2VyQWdyZWVtZW50VXJsIjoiaHR0cDovL2V4YW1wbGUuY29tL3RvcyIsImJhc2VVcmwiOiJodHRwczovL2Fzc2V0cy5icmFpbnRyZWVnYXRld2F5LmNvbSIsImFzc2V0c1VybCI6Imh0dHBzOi8vY2hlY2tvdXQucGF5cGFsLmNvbSIsImRpcmVjdEJhc2VVcmwiOm51bGwsImFsbG93SHR0cCI6dHJ1ZSwiZW52aXJvbm1lbnROb05ldHdvcmsiOnRydWUsImVudmlyb25tZW50Ijoib2ZmbGluZSIsInVudmV0dGVkTWVyY2hhbnQiOmZhbHNlLCJicmFpbnRyZWVDbGllbnRJZCI6Im1hc3RlcmNsaWVudDMiLCJiaWxsaW5nQWdyZWVtZW50c0VuYWJsZWQiOnRydWUsIm1lcmNoYW50QWNjb3VudElkIjoibXljb21wYW55IiwiY3VycmVuY3lJc29Db2RlIjoiVVNEIn0sImNvaW5iYXNlRW5hYmxlZCI6ZmFsc2UsIm1lcmNoYW50SWQiOiJ0emJrd2toNDhrc3ZzcjU4IiwidmVubW8iOiJvZmYifQ
+            var token = 'eyJ2ZXJzaW9uIjoyLCJhdXRob3JpemF0aW9uRmluZ2VycHJpbnQiOiJkMzJmOGZmYjdiMGY5NDhhMGE1NGEyZWFiOTAwZjM4ZGFjZDc1NzAxZWNjY2RhNTFhOTA1MzYzNjg3ZmI4ZDk1fGNyZWF0ZWRfYXQ9MjAxNi0xMC0yNVQxMDoyNTowMC4yODUxODk2MjQrMDAwMFx1MDAyNm1lcmNoYW50X2lkPXR6Ymt3a2g0OGtzdnNyNThcdTAwMjZwdWJsaWNfa2V5PWtienpuN3g3Z3Fud200bmsiLCJjb25maWdVcmwiOiJodHRwczovL2FwaS5zYW5kYm94LmJyYWludHJlZWdhdGV3YXkuY29tOjQ0My9tZXJjaGFudHMvdHpia3draDQ4a3N2c3I1OC9jbGllbnRfYXBpL3YxL2NvbmZpZ3VyYXRpb24iLCJjaGFsbGVuZ2VzIjpbXSwiZW52aXJvbm1lbnQiOiJzYW5kYm94IiwiY2xpZW50QXBpVXJsIjoiaHR0cHM6Ly9hcGkuc2FuZGJveC5icmFpbnRyZWVnYXRld2F5LmNvbTo0NDMvbWVyY2hhbnRzL3R6Ymt3a2g0OGtzdnNyNTgvY2xpZW50X2FwaSIsImFzc2V0c1VybCI6Imh0dHBzOi8vYXNzZXRzLmJyYWludHJlZWdhdGV3YXkuY29tIiwiYXV0aFVybCI6Imh0dHBzOi8vYXV0aC52ZW5tby5zYW5kYm94LmJyYWludHJlZWdhdGV3YXkuY29tIiwiYW5hbHl0aWNzIjp7InVybCI6Imh0dHBzOi8vY2xpZW50LWFuYWx5dGljcy5zYW5kYm94LmJyYWludHJlZWdhdGV3YXkuY29tL3R6Ymt3a2g0OGtzdnNyNTgifSwidGhyZWVEU2VjdXJlRW5hYmxlZCI6dHJ1ZSwicGF5cGFsRW5hYmxlZCI6dHJ1ZSwicGF5cGFsIjp7ImRpc3BsYXlOYW1lIjoiTXlDb21wYW55IiwiY2xpZW50SWQiOm51bGwsInByaXZhY3lVcmwiOiJodHRwOi8vZXhhbXBsZS5jb20vcHAiLCJ1c2VyQWdyZWVtZW50VXJsIjoiaHR0cDovL2V4YW1wbGUuY29tL3RvcyIsImJhc2VVcmwiOiJodHRwczovL2Fzc2V0cy5icmFpbnRyZWVnYXRld2F5LmNvbSIsImFzc2V0c1VybCI6Imh0dHBzOi8vY2hlY2tvdXQucGF5cGFsLmNvbSIsImRpcmVjdEJhc2VVcmwiOm51bGwsImFsbG93SHR0cCI6dHJ1ZSwiZW52aXJvbm1lbnROb05ldHdvcmsiOnRydWUsImVudmlyb25tZW50Ijoib2ZmbGluZSIsInVudmV0dGVkTWVyY2hhbnQiOmZhbHNlLCJicmFpbnRyZWVDbGllbnRJZCI6Im1hc3RlcmNsaWVudDMiLCJiaWxsaW5nQWdyZWVtZW50c0VuYWJsZWQiOnRydWUsIm1lcmNoYW50QWNjb3VudElkIjoibXljb21wYW55IiwiY3VycmVuY3lJc29Db2RlIjoiVVNEIn0sImNvaW5iYXNlRW5hYmxlZCI6ZmFsc2UsIm1lcmNoYW50SWQiOiJ0emJrd2toNDhrc3ZzcjU4IiwidmVubW8iOiJvZmYifQ';
+            braintree.setup(token, "dropin", {
+                container: "bt-dropin"
+            });
         </script>
     </head>
     <body>

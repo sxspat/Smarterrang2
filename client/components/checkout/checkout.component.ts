@@ -4,7 +4,7 @@ import { CheckOutService } from '../../service/checkoutService';
 import { ShoppingCartService } from '../../service/shoppingCart-service';
 import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 import { Http, Headers, RequestOptions } from "@angular/http";
-
+import { TransactionService } from '../../service/transactionService';
 import 'rxjs/add/operator/map';
 declare var $:any;
 
@@ -20,7 +20,7 @@ export class CheckOutComponent {
 	checkout:string = '1';
 	addressform:FormGroup;
 	payment:string = 'paypal';
-    constructor(public http: Http, public fb:FormBuilder, private checkoutService: CheckOutService, private shoppingCartService: ShoppingCartService) {
+    constructor(public http: Http, public fb:FormBuilder, private checkoutService: CheckOutService, private shoppingCartService: ShoppingCartService, private transactionService: TransactionService) {
     	this.addressform = fb.group({
 	        salutation : ['',Validators.required],
 	        title:['',Validators.required],
@@ -39,10 +39,10 @@ export class CheckOutComponent {
 
     onPrev(){
     	if(this.checkout == '3'){
-    		this.check1Active = 'disabled';
-    		this.check2Active = 'active';
+    		this.check1Active = 'active';
+    		this.check2Active = 'disabled';
     		this.check3Active = 'disabled';
-    		this.checkout = '2';
+    		this.checkout = '1';
     	}else if(this.checkout == '2')
     	{
     		this.check1Active = 'active';
@@ -59,9 +59,9 @@ export class CheckOutComponent {
 
     	if(this.checkout == '1'){
     		this.check1Active = 'disabled';
-    		this.check2Active = 'active';
-    		this.check3Active = 'disabled';
-    		this.checkout = '2';
+    		this.check2Active = 'disabled';
+    		this.check3Active = 'active';
+    		this.checkout = '3';
 
     		var salutation = this.addressform.controls.salutation.value;
 	    	var title = this.addressform.controls.title.value;
@@ -90,9 +90,14 @@ export class CheckOutComponent {
 
     	}else if(this.checkout == '3')
         {
-            var data = new FormData();
+            //$("#myModal").modal('show');
+            this.checkoutService.showCheckout = false;
+            this.transactionService.show = true;
+            /*var data = new FormData();
             data.append("amount","10");
             data.append("payment_method_nonce","3ce904cc-7a77-4fff-8b1d-8630a33db3fc");//payment_method_nonce:3ce904cc-7a77-4fff-8b1d-8630a33db3fc
+            
+            // /checkout/checkout is should be called with this func.
             this.http.post('/checkout/checkout',data)
             .map((res: any) => res.json())
             .subscribe(
@@ -103,8 +108,9 @@ export class CheckOutComponent {
                 (error: any) => {
                     console.log(error);
                 }
-            );
+            );*/
         }
+
     }
     setPayment(){
     	this.payment = 'paypal';

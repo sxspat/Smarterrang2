@@ -18,7 +18,8 @@
     <a *ngIf="rec.added" (click)="addToCart(rec)" >
       <button type="button" class=" btn btn-default" id="btnAddToCart" style="float:right;">Hinzufügen</button>
     </a>
-    <input *ngIf="rec.added" (change)="valueChanges(rec)" [(ngModel)]="cartValue" type="number"  style="float:right; width:50px;height:34px;"/>
+    <!--[(ngModel)]="cartValue"-->
+    <input *ngIf="rec.added" (change) = "valueChanges()" value="0" id="cartValue" min="0" [max]="rec.amountProduct" type="number"  style="float:right; width:50px;height:34px;"/>
     <a href="https://maps.google.com?daddr={{rec.address}}+{{rec.nr}}+{{rec.postcode}}+{{rec.city}}" target="_blank">
         <button type="button" class="btn btn-default" id="btnmap" style="float:right;">
             <span class="glyphicon glyphicon-map-marker"></span>

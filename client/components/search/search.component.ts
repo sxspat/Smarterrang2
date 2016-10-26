@@ -2,8 +2,9 @@ import { Component,OnInit,EventEmitter,HostListener,ElementRef,Inject,ChangeDete
 import { SEMANTIC_COMPONENTS, SEMANTIC_DIRECTIVES } from "ng-semantic";
 import { Http, Headers, RequestOptions } from "@angular/http";
 import { AddRecordsService } from '../../service/addRecord-service';
-import { ShoppingCartService } from '../../service/shoppingCart-service'
-import { CheckOutService } from '../../service/checkoutService'
+import { ShoppingCartService } from '../../service/shoppingCart-service';
+import { CheckOutService } from '../../service/checkoutService';
+import { TransactionService } from '../../service/transactionService';
 import {expDaysComponent} from '../expdays/expdays.component';
 import {advertiseComponent} from '../advertise/advertise.component';
 import {SharedService} from '../../service/SharedService';
@@ -74,7 +75,7 @@ export class SearchComponent implements OnInit{
     notifier:Observable<any>;
 		hideSubSubCat:boolean = false;
 
-		constructor(public http: Http,service:SharedService,private autocomplete:AutocompleteService,myElement: ElementRef,private shoppingCartService:ShoppingCartService, private addRecordsService:AddRecordsService, private checkoutService : CheckOutService) {
+		constructor(public http: Http,service:SharedService,private autocomplete:AutocompleteService,myElement: ElementRef,private shoppingCartService:ShoppingCartService, private addRecordsService:AddRecordsService, private checkoutService : CheckOutService, private transactionService: TransactionService) {
 			this.elementRef = myElement;
 		    this.service=service;
 	    }

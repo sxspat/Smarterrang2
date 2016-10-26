@@ -135,16 +135,8 @@ export class CommentsComponent implements OnChanges{
         this.rate = val;
         console.log('changed Rate: '+val);
     }
-    valueChanges(rec){
-        console.log(this.cartValue);
-        if(this.cartValue < 0){
-            this.cartValue = 0;
-            return false;
-        }
-        if(this.cartValue > rec.amountProduct){
-            this.cartValue = rec.amountProduct;
-            return false;
-        }
+    valueChanges(){
+        this.cartValue = parseInt($("#cartValue").val());
     }
     addToCart(rec) {
         if(this.cartValue<1){

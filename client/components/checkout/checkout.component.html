@@ -9,7 +9,7 @@
 
                     <ul class="nav nav-pills nav-justified">
                         <li [class]="check1Active"><a data-toggle="tab" href="#"><i class="fa fa-map-marker"></i><br>Adresse</a></li>
-                        <li [class]="check2Active"><a data-toggle="tab" href="#"><i class="fa fa-money"></i><br>Bezahlmethode</a></li>
+                        <!--<li [class]="check2Active"><a data-toggle="tab" href="#"><i class="fa fa-money"></i><br>Bezahlmethode</a></li>-->
                         <li [class]="check3Active"><a data-toggle="tab" href="#"><i class="fa fa-eye"></i><br>Bestellübersicht</a></li>
                     </ul>
                     <div class="tab-content">
@@ -261,33 +261,17 @@
                             </button>
                         </div>
                         <div class="pull-right">
-                            <button type="submit" class="btn btn-template-main" [disabled]="!addressform.valid" (click)="onNext()">Weiter<i class="fa fa-chevron-right"></i>
+                            <button *ngIf = "checkout!='3'" type="submit" data-dismiss="modal" class="btn btn-template-main" [disabled]="!addressform.valid" (click)="onNext()" >Weiter<i class="fa fa-chevron-right"></i>
                             </button>
+                            <button *ngIf = "checkout=='3'" type="button" class="btn btn-template-main" data-toggle="modal" data-target=".mymodal" style="color:white; background-color: #5bc0de; border-color: #46b8da;">Ordering</button>
                         </div>
                     </div>
                 </div>
                 <!-- /.box -->
 
-
             </div>
             <!-- /.col-md-9 -->
-
             
-        <form id="checkout-form" action="/transaction-endpoint" method="post">
-            <div id="error-message"></div>
-
-            <label for="card-number">Card Number</label>
-            <div class="hosted-field" id="card-number"></div>
-
-            <label for="cvv">CVV</label>
-            <div class="hosted-field" id="cvv"></div>
-
-            <label for="expiration-date">Expiration Date</label>
-            <div class="hosted-field" id="expiration-date"></div>
-
-            <input type="hidden" name="payment-method-nonce">
-            <input type="submit" value="Pay $10" disabled>
-        </form>
         </div>
         <!-- /.row -->
 

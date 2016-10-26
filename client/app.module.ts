@@ -34,7 +34,8 @@ import { LocationStrategy, HashLocationStrategy } from "@angular/common";
 import {ContenteditableModel} from "./components/comments/contentEditableModel";
 import {DatepickerComponent} from './components/datepicker/my-date-range-picker.component';
 import { CheckOutService } from './service/checkoutService';
-
+import { TransactionService } from './service/transactionService';
+import { TransactionComponent } from './components/transaction/transaction.component';
 //import {Modal} from "ng2-modal";
 
 import {RouterModule,Routes} from '@angular/router'
@@ -75,13 +76,13 @@ const routes: Routes = [
                     commentAllFilter,
                     Places,
                     ContenteditableModel,
-
+                    TransactionComponent,
                     ],
     imports:      [BrowserModule,
                     FormsModule,HttpModule,
                     ReactiveFormsModule,
                     routing],
-    providers:    [SharedService,APP_ROUTER_PROVIDERS,AutocompleteService, ShoppingCartService, AddRecordsService, CheckOutService],
+    providers:    [SharedService,APP_ROUTER_PROVIDERS,AutocompleteService, ShoppingCartService, AddRecordsService, CheckOutService, TransactionService],
     bootstrap:    [AppComponent],
 })
 export class AppModule {}

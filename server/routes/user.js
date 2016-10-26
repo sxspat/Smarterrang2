@@ -190,7 +190,6 @@ router.put('/',function(req,res){
         //console.log(docs)
             res.json('success');
     });
-
 })
 router.get('/fetchRecord/:email',function(req,res){
     User.findOne({ 'local.email' : req.params.email }).lean().exec(function(err, user) {
